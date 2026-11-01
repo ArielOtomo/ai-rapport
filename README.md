@@ -1,39 +1,93 @@
-# Programmering – AI-vecka: Rapporten
+# Från brief till kod: AI-rapport
 
-Rapportmodulen för AI-veckan som en egen sida. Studenten skriver rapporten *Från brief till kod: AI-rapport* direkt i sidan och sparar den som PDF.
+En webbsida där studenter skriver en rapport om hur ett AI-verktyg byggde deras app – och sparar den som PDF för inlämning.
 
-## Lägg upp med GitHub Pages
+Rapporten följer en kedja bakåt: **briefen** som beskrev appen, **designen** i Figma och **koden** som ett AI-verktyg skrev. Studenten visar var information försvann på vägen, mäter appens hållbarhet och tillgänglighet, tar ställning till säkerhet och rättigheter, och formulerar en egen strategi för när AI ska användas och när designern tar över.
 
-1. Skapa ett public repo, t.ex. `programmering-ai-vecka-rapport`, och lägg upp innehållet i den här mappen.
-2. **Settings → Pages → Deploy from a branch**, branch `main`, mapp `/ (root)`.
-3. Sidan hamnar på `https://<användarnamn>.github.io/programmering-ai-vecka-rapport/`.
+Sidan är byggd för en kurs i programmering för designers, men passar alla uppgifter där en app har tagits fram från brief till kod med hjälp av AI.
 
-## Spärren mot inklistring
+## Rapportens delar
 
-- Text som kommer **utifrån** – från en AI-chatt, ett dokument eller en webbsida – går inte att klistra in eller dra in.
-- Text som redan finns **i rapporten** får kopieras och klistras in, mellan rutorna eller inom samma ruta.
-- **Korta saker** utifrån får klistras in: en rad på högst 40 tecken (t.ex. en färgkod från Figma, ett filnamn eller ett modellnamn) och länkar till källor. Gränsen ändras med `KORT_RAD` i `js/rapport.js`.
-- **Skärmdumpar** får klistras in i bildrutorna.
-- Spärren gäller kortkommandon, högerklicksmenyn och dra-och-släpp.
+| Del | Innehåll |
+|---|---|
+| 1. Kedjan och vad som blev fel | Skärmdumpar av brief, design och app sida vid sida. Minst tre fel, förklarade med begrepp som hallucination och kontextfönster. |
+| 2. Briefens brister | Varje brist följs genom kedjan: vad den ledde till i designen och i koden, och vad briefen hade behövt säga. |
+| 3. Hållbarhet och tillgänglighet | Fyra kontroller: bilder, beroenden, kontrast och en AI-granskning mot WCAG 2.2 AA. Avslutas med tre brister som studenten har kontrollerat själv och föreslår åtgärder för. |
+| 4. Säkerhet och rättigheter | Vad som delades med AI-verktyget, vem som äger resultatet och om något behöver märkas som AI-genererat. |
+| 5. Strategi | En omskriven brief, en bild av den egna processen och en motivering. |
+| Källor | Färdiga källor att bocka i, och egna källor. |
 
-Spärren är ett stöd, inte ett säkert prov. Den hindrar inte att någon skriver av text för hand, och webbläsartillägg kan i sällsynta fall ändra textrutor direkt. Antalet stoppade försök sparas i rapportens data men visas inte i PDF:en.
+## Funktioner
 
-## Övrigt
+- **Skriv direkt i sidan.** Färdiga fält och tabeller för varje del, så att studenten vet vad som ska med.
+- **Skärmdumpar.** Välj en fil, dra in en bild eller klistra in en skärmdump direkt i en bildruta. Bilderna förminskas automatiskt.
+- **Kontrastmätare.** Räknar ut kontrasten mellan två färger och visar om den klarar WCAG AA.
+- **Sidräknare.** Visar ungefär hur många A4-sidor rapporten blir. Målet är 4–6 sidor.
+- **Spara som PDF.** Öppnar webbläsarens utskriftsruta med en färdig rapportlayout. Välj *Spara som PDF*. Tomma fält kommer inte med.
+- **Exempelrapport.** Knappen *Visa exempelrapport* visar en färdig rapport med kommentarer om vad som gör svaren bra. Den finns också som PDF i `exempel/exempelrapport.pdf`.
+- **Ljust och mörkt läge.**
 
-- Allt sparas automatiskt i webbläsaren (IndexedDB), även bilderna – bara på den datorn och i den webbläsaren. Be studenterna spara en PDF i slutet av varje arbetspass.
-- **Visa exempelrapport** visar en färdig rapport med kommentarer. Samma rapport finns som `exempel/exempelrapport.pdf`.
-- Källorna från måndagen ligger i `js/kallor.js`.
+## Skriv med egna ord
+
+Sidan stoppar text som klistras in utifrån – till exempel från en AI-chatt, ett dokument eller en webbsida. Det gäller kortkommandon, högerklicksmenyn och dra-och-släpp.
+
+Det här går bra att klistra in:
+
+- text som redan finns i rapporten, så att man kan flytta text mellan rutorna
+- korta saker på en rad, högst 40 tecken – till exempel en färgkod, ett filnamn eller ett modellnamn
+- länkar till källor
+- skärmdumpar, i bildrutorna
+
+Spärren är ett stöd, inte ett säkert prov. Den hindrar inte att någon skriver av en text för hand.
+
+## Integritet
+
+Allt studenten skriver, även bilderna, sparas bara i webbläsaren på den egna datorn (IndexedDB). Inget skickas till någon server, och sidan har ingen inloggning.
+
+Det betyder också att rapporten bara finns i den webbläsaren. Byter man dator, använder privat läge eller rensar webbläsardata försvinner den. Spara en PDF i slutet av varje arbetspass som säkerhetskopia.
+
+## Kom igång
+
+Sidan är vanlig HTML, CSS och JavaScript. Den har inga beroenden och ingen byggprocess.
+
+**Lokalt:** öppna mappen i VS Code och starta *Live Server* på `index.html`, eller kör en enkel webbserver:
+
+```
+python3 -m http.server
+```
+
+**GitHub Pages:** lägg upp repot och välj **Settings → Pages → Deploy from a branch**, branch `main`, mapp `/ (root)`. Sidan hamnar på `https://<användarnamn>.github.io/<repo>/`.
+
+## Anpassa
+
+| Vill du ändra… | Gör så här |
+|---|---|
+| Källorna studenten kan bocka i | Redigera listan i `js/kallor.js`. |
+| Hur långa saker som får klistras in utifrån | Ändra `KORT_RAD` i `js/rapport.js`. |
+| Frågorna och fälten | Funktionen `formHtml()` i `js/rapport.js`. |
+| Hur PDF:en ser ut | Funktionen `printHtml()` i `js/rapport.js` och stilarna för `.print-doc` i `css/style.css`. |
+| Exempelrapporten | Innehållet i `js/exempel.js`. Byt också ut `exempel/exempelrapport.pdf`. |
+| Färger och typsnitt | Variablerna högst upp i `css/style.css`. |
 
 ## Filer
 
 ```
-├── index.html
-├── css/style.css
-├── images/brand-mark.svg
-├── exempel/exempelrapport.pdf
+├── index.html               sidan
+├── css/style.css            utseendet, och layouten för PDF:en
+├── images/brand-mark.svg    logga
+├── exempel/
+│   └── exempelrapport.pdf   exempelrapporten som PDF
 └── js/
-    ├── kallor.js    ← måndagens källor
-    ├── exempel.js   ← exempelrapporten
-    ├── rapport.js   ← rapporten, PDF-utskriften och spärren
-    └── main.js      ← startar sidan
+    ├── rapport.js           formuläret, sparandet, PDF:en och spärren mot inklistring
+    ├── kallor.js            källorna studenten kan välja
+    ├── exempel.js           exempelrapporten
+    └── main.js              startar sidan
 ```
+
+## Om exempelrapporten
+
+Koden i exemplet kommer från en riktig app, en mindmap-app byggd med Claude Code. Briefen, designen och processen i exemplet är påhittade för att visa hur en rapport kan se ut.
+
+## Webbläsare
+
+Fungerar i aktuella versioner av Chrome, Edge, Firefox och Safari. Sidräknaren är en uppskattning – exakt hur sidorna bryts kan skilja lite mellan webbläsare.
