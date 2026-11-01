@@ -1,10 +1,8 @@
 # Från brief till kod: AI-rapport
 
-En webbsida där studenter skriver en rapport om hur ett AI-verktyg byggde deras app – och sparar den som PDF för inlämning.
+En webbsida där ni i UX25 skriver en rapport om hur ett AI-verktyg byggde eran todoapp, och sparar den som PDF för inlämning.
 
-Rapporten följer en kedja bakåt: **briefen** som beskrev appen, **designen** i Figma och **koden** som ett AI-verktyg skrev. Studenten visar var information försvann på vägen, mäter appens hållbarhet och tillgänglighet, tar ställning till säkerhet och rättigheter, och formulerar en egen strategi för när AI ska användas och när designern tar över.
-
-Sidan är byggd för en kurs i programmering för designers, men passar alla uppgifter där en app har tagits fram från brief till kod med hjälp av AI.
+Rapporten följer en kedja bakåt: **briefen** som beskrev appen, **designen** i Figma och **koden** som ett AI-verktyg skrev. Ni visar var information försvann på vägen, mäter appens hållbarhet och tillgänglighet, tar ställning till säkerhet och rättigheter, och formulerar en egen strategi för när AI ska användas och när designern tar över.
 
 ## Rapportens delar
 
