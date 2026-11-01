@@ -46,43 +46,6 @@ Allt studenten skriver, även bilderna, sparas bara i webbläsaren på den egna 
 
 Det betyder också att rapporten bara finns i den webbläsaren. Byter man dator, använder privat läge eller rensar webbläsardata försvinner den. Spara en PDF i slutet av varje arbetspass som säkerhetskopia.
 
-## Kom igång
-
-Sidan är vanlig HTML, CSS och JavaScript. Den har inga beroenden och ingen byggprocess.
-
-**Lokalt:** öppna mappen i VS Code och starta *Live Server* på `index.html`, eller kör en enkel webbserver:
-
-```
-python3 -m http.server
-```
-
-**GitHub Pages:** lägg upp repot och välj **Settings → Pages → Deploy from a branch**, branch `main`, mapp `/ (root)`. Sidan hamnar på `https://<användarnamn>.github.io/<repo>/`.
-
-## Anpassa
-
-| Vill du ändra… | Gör så här |
-|---|---|
-| Källorna studenten kan bocka i | Redigera listan i `js/kallor.js`. |
-| Hur långa saker som får klistras in utifrån | Ändra `KORT_RAD` i `js/rapport.js`. |
-| Frågorna och fälten | Funktionen `formHtml()` i `js/rapport.js`. |
-| Hur PDF:en ser ut | Funktionen `printHtml()` i `js/rapport.js` och stilarna för `.print-doc` i `css/style.css`. |
-| Exempelrapporten | Innehållet i `js/exempel.js`. Byt också ut `exempel/exempelrapport.pdf`. |
-| Färger och typsnitt | Variablerna högst upp i `css/style.css`. |
-
-## Filer
-
-```
-├── index.html               sidan
-├── css/style.css            utseendet, och layouten för PDF:en
-├── images/brand-mark.svg    logga
-├── exempel/
-│   └── exempelrapport.pdf   exempelrapporten som PDF
-└── js/
-    ├── rapport.js           formuläret, sparandet, PDF:en och spärren mot inklistring
-    ├── kallor.js            källorna studenten kan välja
-    ├── exempel.js           exempelrapporten
-    └── main.js              startar sidan
-```
 
 ## Om exempelrapporten
 
