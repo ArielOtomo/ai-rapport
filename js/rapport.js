@@ -414,7 +414,7 @@
     main.innerHTML = `
       <span class="eyebrow">Rapporten</span>
       <h1>Från brief till kod: AI-rapport</h1>
-      <p class="lead">Skriv rapporten direkt här. Allt sparas automatiskt i den här webbläsaren. När du är klar: <strong>Spara som PDF</strong> och lämna in på itslearning senast fredag 6/11 kl. 23:59.</p>
+      <p class="lead">Skriv rapporten direkt här. Allt sparas automatiskt i den här webbläsaren. När du är klar: <strong>Spara som PDF</strong> och lämna in på itslearning senast fredag 20/11 kl. 23:59.</p>
       <div class="rp-rule"><strong>Skriv med egna ord.</strong> Text utifrån – till exempel från en AI-chatt – går inte att klistra in. Du kan kopiera och klistra mellan rutorna i rapporten, klistra in korta saker som färgkoder, filnamn och länkar, och klistra in skärmdumpar i bildrutorna.</div>
       <div class="rp-bar" role="region" aria-label="Rapportens verktyg">
         <span class="rp-status" id="rpStatus" role="status">✓ Sparat</span>
